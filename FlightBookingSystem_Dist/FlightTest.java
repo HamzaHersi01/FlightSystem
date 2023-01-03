@@ -12,8 +12,8 @@ public class FlightTest {
 	private final Flight stats = new Flight(5, "DSE1234", "Dublin", "Moroco",date,200, 40);
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	public void GetIdTest() {
+		assetEquals(5,stats.getId());
 	}
 
 }

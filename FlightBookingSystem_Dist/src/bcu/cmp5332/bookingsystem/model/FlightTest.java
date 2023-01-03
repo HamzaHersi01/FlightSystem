@@ -1,10 +1,12 @@
 package bcu.cmp5332.bookingsystem.model;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 
 import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class FlightTest {
 	
@@ -12,8 +14,10 @@ public class FlightTest {
 	private final Flight stats = new Flight(5, "DSE1234", "Dublin", "Moroco",date,200, 40);
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	public void GetIdTest() {
+		assertEquals(5, stats.getId());
 	}
+
+
 
 }
