@@ -79,6 +79,35 @@ public class FlightTest {
 		assertEquals(date2, stats10.getDepartureDate());
 	}
 	
+	private final Flight stats11 = new Flight(5, "DSE1234", "Dublin", "Moroco",date,200, 40);
+	@Test
+	public void getFlightCapacityTest() {
+		assertEquals(200, stats11.getFlightCapacity());
+	}
+	
+	private final Flight stats12 = new Flight(5, "DSE1234", "Dublin", "Moroco",date,200, 40);
+	@Test
+	public void setFlightCapacityTest() {
+		stats12.setFlightCapacity(400);
+		assertEquals(400, stats12.getFlightCapacity());
+	}
+	
+	private final Flight stats13 = new Flight(5, "DSE1234", "Dublin", "Moroco",date,200, 40);
+	@Test
+	public void getPrice() {
+		assertEquals(40, stats13.getPrice());
+	}
+	
+	private final Flight stats14 = new Flight(5, "DSE1234", "Dublin", "Moroco",date,200, 40);
+	@Test
+	public void setPrice() {
+		stats14.setPrice(100);
+		assertEquals(100, stats14.getPrice());
+	}
+	
+	
+	
+	
 	
 	
 	
