@@ -66,9 +66,21 @@ public class FlightTest {
 	
 	private final Flight stats9 = new Flight(5, "DSE1234", "Dublin", "Moroco",date,200, 40);
 	@Test
-	public void getDepartureDate() {
-		assertEquals("2022-12-24", stats9.getDepartureDate());
+	public void getDepartureDateTest() {
+		assertEquals(date, stats9.getDepartureDate());
 	}
+	
+	
+	private final LocalDate date2 = LocalDate.parse("2022-12-29");
+	private final Flight stats10 = new Flight(5, "DSE1234", "Dublin", "Moroco",date,200, 40);
+	@Test
+	public void setDepartureDateTest() {
+		stats10.setDepartureDate(date2);
+		assertEquals(date2, stats10.getDepartureDate());
+	}
+	
+	
+	
 	
 	
 	
