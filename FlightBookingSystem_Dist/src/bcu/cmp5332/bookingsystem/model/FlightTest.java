@@ -105,6 +105,13 @@ public class FlightTest {
 		assertEquals(100, stats14.getPrice());
 	}
 	
+	public final Flight stats15 = new Flight(5, "DSE1234", "Dublin", "Moroco",date,200, 40);
+	@Test
+	public void getPassengersTest() {
+	System.out.print(stats15.getPassengers());
+	}
+	
+	
 	
 	
 	
