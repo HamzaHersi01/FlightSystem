@@ -72,7 +72,7 @@ public class AddCustomer implements Command, DataManager {
 			
 		} catch (FlightBookingSystemException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new FlightBookingSystemException("Error: Unable to save.");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

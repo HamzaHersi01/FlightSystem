@@ -61,6 +61,9 @@ public class AddBooking implements Command, DataManager {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (FlightBookingSystemException e) {
+			// TODO Auto-generated catch block
+			throw new FlightBookingSystemException("Error: Unable to save.");
 		}
 		//System.out.println("Booking for Customer #" + customerID + " been added.");
 		
