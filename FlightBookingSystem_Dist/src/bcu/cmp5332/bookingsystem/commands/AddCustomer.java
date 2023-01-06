@@ -1,6 +1,7 @@
 package bcu.cmp5332.bookingsystem.commands;
 
 import bcu.cmp5332.bookingsystem.main.FlightBookingSystemException;
+import bcu.cmp5332.bookingsystem.model.Booking;
 import bcu.cmp5332.bookingsystem.model.Customer;
 import bcu.cmp5332.bookingsystem.model.Flight;
 import bcu.cmp5332.bookingsystem.model.FlightBookingSystem;
@@ -47,15 +48,35 @@ public class AddCustomer implements Command, DataManager {
     @Override
     public void execute(FlightBookingSystem flightBookingSystem) throws FlightBookingSystemException {
         // TODO: implementation here
-    	 int maxId = 0;
-         if (flightBookingSystem.getCustomers().size() > 0) {
-             int lastIndex = flightBookingSystem.getCustomers().size() - 1;
-             maxId = flightBookingSystem.getCustomers().get(lastIndex).getId();
-         }
+//    	 int maxId = 0;
+//         if (flightBookingSystem.getCustomers().size() > 0) {
+//             int lastIndex = flightBookingSystem.getCustomers().size() - 1;
+//             maxId = flightBookingSystem.getCustomers().get(lastIndex).getId();
+//         }
+//         
+//         Customer customer = new Customer(++maxId, name, phone, email);
+//         flightBookingSystem.addCustomer(customer);
+//         System.out.println("Customer #" + customer.getId() + " added.");
          
-         Customer customer = new Customer(++maxId, name, phone, email);
-         flightBookingSystem.addCustomer(customer);
-         System.out.println("Customer #" + customer.getId() + " added.");
+     	try {
+     		int maxId = 0;
+            if (flightBookingSystem.getCustomers().size() > 0) {
+                int lastIndex = flightBookingSystem.getCustomers().size() - 1;
+                maxId = flightBookingSystem.getCustomers().get(lastIndex).getId();
+            }
+            
+            Customer customer = new Customer(++maxId, name, phone, email);
+            flightBookingSystem.addCustomer(customer);
+            storeData(flightBookingSystem);
+            System.out.println("Customer #" + customer.getId() + " added.");
+			
+		} catch (FlightBookingSystemException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	
     }
 

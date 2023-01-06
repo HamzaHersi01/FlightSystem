@@ -53,9 +53,9 @@ public class AddBooking implements Command, DataManager {
 	@Override
 	public void execute(FlightBookingSystem flightBookingSystem) throws FlightBookingSystemException {
 		// TODO Auto-generated method stub
-		Booking booking = new Booking(flightBookingSystem.getCustomerByID(customerID), flightBookingSystem.getFlightByID(flightID), date);
-		flightBookingSystem.getCustomerByID(customerID).addBooking(booking);
 		try {
+			Booking booking = new Booking(flightBookingSystem.getCustomerByID(customerID), flightBookingSystem.getFlightByID(flightID), date);
+			flightBookingSystem.getCustomerByID(customerID).addBooking(booking);
 			storeData(flightBookingSystem);
 			System.out.println("Booking for Customer #" + customerID + " been added.");
 		} catch (IOException e) {
