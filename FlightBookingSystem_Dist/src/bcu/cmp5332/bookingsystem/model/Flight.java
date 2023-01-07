@@ -17,6 +17,7 @@ public class Flight {
     private LocalDate departureDate;
     private int flightCapacity;
     private int price;
+    private boolean removed= false;
 
     private final Set<Customer> passengers;
 
@@ -28,8 +29,17 @@ public class Flight {
         this.departureDate = departureDate;
         this.flightCapacity= flightCapacity;
         this.price= price;
+        this.removed = removed;
         
         passengers = new HashSet<>();
+    }
+    
+    public boolean getRemoved() {
+    	return removed;
+    }
+    
+    public void setRemoved(boolean removed) {
+    	this.removed = removed;
     }
 
     public int getId() {
