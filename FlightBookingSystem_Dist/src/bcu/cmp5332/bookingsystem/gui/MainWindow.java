@@ -180,6 +180,7 @@ public class MainWindow extends JFrame implements ActionListener {
         	displayCust();
             
         } else if (ae.getSource() == custAdd) {
+        	new AddCustWindow(this);
             
             
         } else if (ae.getSource() == custDel) {
