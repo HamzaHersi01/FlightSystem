@@ -84,7 +84,8 @@ public class LstCustWindow extends JFrame implements ActionListener{
 	            // create and execute the Command
 //	            Command ShowFlight = new ShowFlight(flightId);
 //	            ShowFlight.execute(mw.getFlightBookingSystem());
-	            showCustLbl.setText(mw.getFlightBookingSystem().getFlightByID(flightId).getDetailsLong());
+	            
+	            showCustLbl.setText(mw.getFlightBookingSystem().getFlightByID(flightId).getDetails());
 	            // refresh the view with the list of flights
 //	            mw.displayFlights();
 	            // hide (close) the Window

@@ -93,6 +93,30 @@ public class Flight {
         return new ArrayList<>(passengers);
     }
 	
+    public String getDetails() {
+        // TODO: implementation here
+    	List<String> details = new ArrayList<>();
+    	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+        if (!(passengers.isEmpty())) {
+	    	for (Customer customer : passengers) {
+	    		String detail = "* Id: " + customer.getId() + " - Name: " + customer.getName()  + " - Phone: " +
+	        			customer.getPhone() + "\r\n";
+	    		details.add(detail);
+	    	}
+    	}
+    	else {
+    		return "Flight #" + id + " - " + flightNumber + " - " + origin + " to " + destination + " on " 
+        			+ departureDate.format(dtf) + "\n" + "--------------------------" + "\n" +
+    				"there are no passengers for this flight";
+    	}
+        String stringDetails = details.toString().replace("[", "").replace("]", "").replace(", ", "");
+        System.out.println(stringDetails);
+		return "Flight# " + id + "\n" 
+    			 + " Passengers: " + "\n" + stringDetails 
+    			+ passengers.size() + " passenger(s)";
+    }
+    
+    
     public String getDetailsShort() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/YYYY");
         return "Flight #" + id + " - " + flightNumber + " - " + origin + " to " 
