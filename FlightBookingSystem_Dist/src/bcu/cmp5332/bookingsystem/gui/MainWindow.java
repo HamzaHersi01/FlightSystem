@@ -1,6 +1,7 @@
 package bcu.cmp5332.bookingsystem.gui;
 
 import bcu.cmp5332.bookingsystem.data.FlightBookingSystemData;
+import bcu.cmp5332.bookingsystem.main.FlightBookingSystemException;
 import bcu.cmp5332.bookingsystem.model.Customer;
 import bcu.cmp5332.bookingsystem.model.Flight;
 import bcu.cmp5332.bookingsystem.model.FlightBookingSystem;
@@ -19,7 +20,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 import javax.swing.UIManager;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 public class MainWindow extends JFrame implements ActionListener {
 
@@ -227,18 +231,16 @@ public class MainWindow extends JFrame implements ActionListener {
 //        custBtn.addActionListener(this);
 //        List<Bookings> bookings = fbs.getCustomers();
         // headers for the table
-        String[] columns = new String[]{"Name", "Phone", "Email", "No of Bookings","View Bookings"};
+        String[] columns = new String[]{"Name", "Phone", "Email", "No of Bookings"};
 
-        Object[][] data = new Object[custList.size()][5];
-        //added +1 to size since new column idk if it works error occurs
+        Object[][] data = new Object[custList.size()][4];
+        
         for (int i = 0; i < custList.size(); i++) {
             Customer customer = custList.get(i);
             data[i][0] = customer.getName();
             data[i][1] = customer.getPhone();
             data[i][2] = customer.getEmail();
             data[i][3] = customer.getBookings().size();
-            data[i][4] = ("View Booking");
-            
             
             
         }
@@ -249,6 +251,27 @@ public class MainWindow extends JFrame implements ActionListener {
         this.getContentPane().add(new JScrollPane(table));
         this.revalidate();
         table.setDefaultEditor(Object.class, null);
+        
+        ListSelectionModel model = table.getSelectionModel();
+        model.addListSelectionListener(new ListSelectionListener() {
+
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				// TODO Auto-generated method stub
+				if(!model.isSelectionEmpty()) {
+					try {
+						int rowSelected = model.getMinSelectionIndex();
+						JOptionPane.showMessageDialog(null, fbs.getCustomerByID(rowSelected+1).getDetailsLong());
+					} catch (FlightBookingSystemException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+				
+			}
+        	
+        });
+        
     }
     
     

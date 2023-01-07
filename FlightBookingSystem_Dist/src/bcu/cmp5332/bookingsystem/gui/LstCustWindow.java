@@ -44,7 +44,7 @@ public class LstCustWindow extends JFrame implements ActionListener{
 
 	        setTitle("List passengers for particular flight");
 
-	        setSize(300, 300);
+	        setSize(800, 300);
 	        JPanel topPanel = new JPanel();
 	        topPanel.setLayout(new GridLayout(3, 1));
 	        topPanel.add(new JLabel("Flight Id : "));
