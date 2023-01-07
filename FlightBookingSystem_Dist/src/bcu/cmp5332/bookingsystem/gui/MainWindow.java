@@ -203,15 +203,17 @@ public class MainWindow extends JFrame implements ActionListener {
     
     public void displayCust() {
         List<Customer> custList = fbs.getCustomers();
+//        List<Bookings> bookings = fbs.getCustomers();
         // headers for the table
-        String[] columns = new String[]{"Name", "Phone", "Email"};
+        String[] columns = new String[]{"Name", "Phone", "Email", "No of Bookings"};
 
-        Object[][] data = new Object[custList.size()][3];
+        Object[][] data = new Object[custList.size()][4];
         for (int i = 0; i < custList.size(); i++) {
             Customer customer = custList.get(i);
             data[i][0] = customer.getName();
             data[i][1] = customer.getPhone();
             data[i][2] = customer.getEmail();
+            data[i][3] = customer.getBookings().size();
             
             
         }
