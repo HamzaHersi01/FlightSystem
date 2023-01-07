@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -182,7 +184,7 @@ public class MainWindow extends JFrame implements ActionListener {
         } else if (ae.getSource() == lstCust) {
         	new LstCustWindow(this);
             
-        }
+        } 
         
     }
 
@@ -210,18 +212,22 @@ public class MainWindow extends JFrame implements ActionListener {
     }
     
     public void displayCust() {
+//    	JButton custBtn = new JButton("Booking details");
         List<Customer> custList = fbs.getCustomers();
+//        custBtn.addActionListener(this);
 //        List<Bookings> bookings = fbs.getCustomers();
         // headers for the table
         String[] columns = new String[]{"Name", "Phone", "Email", "No of Bookings"};
 
-        Object[][] data = new Object[custList.size()][4];
+        Object[][] data = new Object[custList.size()][5];
+        //added +1 to size since new column idk if it works error occurs
         for (int i = 0; i < custList.size(); i++) {
             Customer customer = custList.get(i);
             data[i][0] = customer.getName();
             data[i][1] = customer.getPhone();
             data[i][2] = customer.getEmail();
             data[i][3] = customer.getBookings().size();
+//            data[i][4] = custBtn;
             
             
         }
@@ -231,4 +237,13 @@ public class MainWindow extends JFrame implements ActionListener {
         this.getContentPane().add(new JScrollPane(table));
         this.revalidate();
     }
+    
+//    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {                                 
+//        	   JTable source = (JTable)evt.getSource();
+//               int row = source.rowAtPoint( evt.getPoint() );
+//               int column = source.columnAtPoint( evt.getPoint() );
+//               String s=source.getModel().getValueAt(row, column)+"";
+//
+//               JOptionPane.showMessageDialog(null, s);
+//   }
 }
