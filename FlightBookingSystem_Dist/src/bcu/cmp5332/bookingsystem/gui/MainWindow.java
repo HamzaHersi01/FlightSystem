@@ -1,6 +1,7 @@
 package bcu.cmp5332.bookingsystem.gui;
 
 import bcu.cmp5332.bookingsystem.data.FlightBookingSystemData;
+import bcu.cmp5332.bookingsystem.model.Customer;
 import bcu.cmp5332.bookingsystem.model.Flight;
 import bcu.cmp5332.bookingsystem.model.FlightBookingSystem;
 import java.awt.event.ActionEvent;
@@ -166,7 +167,7 @@ public class MainWindow extends JFrame implements ActionListener {
             
             
         } else if (ae.getSource() == custView) {
-            
+        	displayCust();
             
         } else if (ae.getSource() == custAdd) {
             
@@ -198,5 +199,26 @@ public class MainWindow extends JFrame implements ActionListener {
         this.getContentPane().removeAll();
         this.getContentPane().add(new JScrollPane(table));
         this.revalidate();
-    }	
+    }
+    
+    public void displayCust() {
+        List<Customer> custList = fbs.getCustomers();
+        // headers for the table
+        String[] columns = new String[]{"Name", "Phone", "Email"};
+
+        Object[][] data = new Object[custList.size()][3];
+        for (int i = 0; i < custList.size(); i++) {
+            Customer customer = custList.get(i);
+            data[i][0] = customer.getName();
+            data[i][1] = customer.getPhone();
+            data[i][2] = customer.getEmail();
+            
+            
+        }
+
+        JTable table = new JTable(data, columns);
+        this.getContentPane().removeAll();
+        this.getContentPane().add(new JScrollPane(table));
+        this.revalidate();
+    }
 }
