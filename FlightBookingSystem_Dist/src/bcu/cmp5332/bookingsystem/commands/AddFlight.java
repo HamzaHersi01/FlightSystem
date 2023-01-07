@@ -18,6 +18,7 @@ public class AddFlight implements  Command,DataManager {
     private final LocalDate departureDate;
     private int flightCapacity;
     private int price;
+    private boolean removed = false;
     private final String RESOURCE = "./resources/data/flights.txt";
     
     public AddFlight(String flightNumber, String origin, String destination, LocalDate departureDate,int flightCapacity,int price) {
@@ -27,6 +28,7 @@ public class AddFlight implements  Command,DataManager {
         this.departureDate = departureDate;
         this.flightCapacity = flightCapacity;
         this.price = price;
+        this.removed = removed;
     }
     
 	@Override
@@ -46,6 +48,7 @@ public class AddFlight implements  Command,DataManager {
                 out.print(flight.getDepartureDate() + SEPARATOR);
                 out.print(flight.getFlightCapacity() + SEPARATOR);
                 out.print(flight.getPrice() + SEPARATOR);
+                out.print(flight.getRemoved() + SEPARATOR );
                 out.println();
             }
         }
