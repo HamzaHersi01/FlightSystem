@@ -186,7 +186,17 @@ public class MainWindow extends JFrame implements ActionListener {
             
         } 
         
+        
+        
     }
+    
+    public boolean isCellEditable(int row, int col) {
+    	if (col == 7) {
+    	            return true;
+    	        } else {
+    	            return false;
+    	        }       
+    	    }
 
     public void displayFlights() {
         List<Flight> flightsList = fbs.getFlights();
@@ -217,7 +227,7 @@ public class MainWindow extends JFrame implements ActionListener {
 //        custBtn.addActionListener(this);
 //        List<Bookings> bookings = fbs.getCustomers();
         // headers for the table
-        String[] columns = new String[]{"Name", "Phone", "Email", "No of Bookings"};
+        String[] columns = new String[]{"Name", "Phone", "Email", "No of Bookings","View Bookings"};
 
         Object[][] data = new Object[custList.size()][5];
         //added +1 to size since new column idk if it works error occurs
@@ -227,16 +237,20 @@ public class MainWindow extends JFrame implements ActionListener {
             data[i][1] = customer.getPhone();
             data[i][2] = customer.getEmail();
             data[i][3] = customer.getBookings().size();
-//            data[i][4] = custBtn;
+            data[i][4] = ("View Booking");
+            
             
             
         }
+        
 
         JTable table = new JTable(data, columns);
         this.getContentPane().removeAll();
         this.getContentPane().add(new JScrollPane(table));
         this.revalidate();
+        table.setDefaultEditor(Object.class, null);
     }
+    
     
 //    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {                                 
 //        	   JTable source = (JTable)evt.getSource();
