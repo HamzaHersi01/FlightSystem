@@ -54,10 +54,14 @@ public class AddBooking implements Command, DataManager {
 	public void execute(FlightBookingSystem flightBookingSystem) throws FlightBookingSystemException {
 		// TODO Auto-generated method stub
 		try {
-			Booking booking = new Booking(flightBookingSystem.getCustomerByID(customerID), flightBookingSystem.getFlightByID(flightID), date);
-			flightBookingSystem.getCustomerByID(customerID).addBooking(booking);
-			storeData(flightBookingSystem);
-			System.out.println("Booking for Customer #" + customerID + " been added.");
+			if(flightBookingSystem.getFlightByID(flightID).getPassengers().size() < flightBookingSystem.getFlightByID(flightID).getFlightCapacity()) {
+				Booking booking = new Booking(flightBookingSystem.getCustomerByID(customerID), flightBookingSystem.getFlightByID(flightID), date);
+				flightBookingSystem.getCustomerByID(customerID).addBooking(booking);
+				storeData(flightBookingSystem);
+				System.out.println("Booking for Customer #" + customerID + " been added.");
+			} else {
+				System.out.println("Booking is denied due to maximum flight capacity for Flight#: " + flightID);
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
