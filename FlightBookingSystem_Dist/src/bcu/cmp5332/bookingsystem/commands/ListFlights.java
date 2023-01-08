@@ -13,6 +13,8 @@ public class ListFlights implements Command {
 
     @Override
     public void execute(FlightBookingSystem flightBookingSystem) throws FlightBookingSystemException {
+    	//goes through each flight object from the flightbookingSystem list of flights and it checks if todays date
+    	//is before the departure date, if true it prints the deatils short method of flights and prints number of flights 
         List<Flight> flights = flightBookingSystem.getFlights();
         for (Flight flight : flights) {
         	//if(flight.getRemoved()== false) {

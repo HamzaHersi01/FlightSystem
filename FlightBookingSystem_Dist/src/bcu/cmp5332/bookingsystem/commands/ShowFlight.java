@@ -12,7 +12,7 @@ public class ShowFlight implements Command{
 
     @Override
     public void execute(FlightBookingSystem flightBookingSystem) throws FlightBookingSystemException {
-    	
+    	//shows the long details of the particular flight object that is retrieved using the flight id and method from fbs
     	System.out.println(flightBookingSystem.getFlightByID(id).getDetailsLong());
     }
     

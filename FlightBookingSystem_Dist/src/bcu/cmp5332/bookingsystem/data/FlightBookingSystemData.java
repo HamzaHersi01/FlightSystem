@@ -23,7 +23,8 @@ public class FlightBookingSystemData {
     }
     
     public static FlightBookingSystem load() throws FlightBookingSystemException, IOException {
-
+    	
+    	//loads data from the data managers and returns a fbs with the data loaded
         FlightBookingSystem fbs = new FlightBookingSystem();
         for (DataManager dm : dataManagers) {
             dm.loadData(fbs);
@@ -32,7 +33,8 @@ public class FlightBookingSystemData {
     }
 
     public static void store(FlightBookingSystem fbs) throws IOException {
-
+    	
+    	//stores data from data managers
         for (DataManager dm : dataManagers) {
             dm.storeData(fbs);
         }

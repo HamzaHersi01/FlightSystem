@@ -19,6 +19,8 @@ public class CustomerDataManager implements DataManager {
     @Override
     public void loadData(FlightBookingSystem fbs) throws IOException, FlightBookingSystemException {
         // TODO: implementation here
+    	//loads the data from customers txt file and gets each data separated by :: and creates a customer object which is added to the
+    	//flightbookingsystems customer map using the fbs method
     	try (Scanner sc = new Scanner(new File(RESOURCE))) {
             int line_idx = 1;
             while (sc.hasNextLine()) {
@@ -43,6 +45,7 @@ public class CustomerDataManager implements DataManager {
     @Override
     public void storeData(FlightBookingSystem fbs) throws IOException {
         // TODO: implementation here
+    	//stores customers data to customer txt file from the fbs map of customers
     	try (PrintWriter out = new PrintWriter(new FileWriter(RESOURCE))) {
             for (Customer customer : fbs.getCustomers()) {
                 out.print(customer.getId() + SEPARATOR);

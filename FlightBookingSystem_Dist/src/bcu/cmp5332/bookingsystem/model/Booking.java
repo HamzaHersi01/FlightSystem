@@ -9,6 +9,7 @@ public class Booking {
     private LocalDate bookingDate;
     
 
+    //initialises the attributes for booking class
     public Booking(int id,Customer customer, Flight flight, LocalDate bookingDate) {
         // TODO: implementation here
     	this.id = id;

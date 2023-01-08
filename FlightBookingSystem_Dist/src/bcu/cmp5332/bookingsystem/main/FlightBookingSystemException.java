@@ -7,6 +7,7 @@ package bcu.cmp5332.bookingsystem.main;
  */
 public class FlightBookingSystemException extends Exception {
 
+	//an exception with message that gets parsed
     public FlightBookingSystemException(String message) {
         super(message);
     }

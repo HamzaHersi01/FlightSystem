@@ -21,7 +21,7 @@ import bcu.cmp5332.bookingsystem.commands.Command;
 import bcu.cmp5332.bookingsystem.main.FlightBookingSystemException;
 
 public class AddCustWindow extends JFrame implements ActionListener{
-	
+	//defines the attributes of the addcustwindow class where it has 3 txt fields and 2 buttons and a main window
 	private MainWindow mw;
     private JTextField nameText = new JTextField();
     private JTextField phoneText = new JTextField();
@@ -30,11 +30,15 @@ public class AddCustWindow extends JFrame implements ActionListener{
     private JButton addBtn = new JButton("Add");
     private JButton cancelBtn = new JButton("Cancel");
 
+    //initialises the mainwindow attribute and runs the initialize method
     public AddCustWindow(MainWindow mw) {
         this.mw = mw;
         initialize();
     }
 
+    //creates the window by setting the size and title of window and added all the elements like labels and txt fields to the panels
+    //which is a grid layout
+    //also adds actionlistener to buttons and sets it to visible
     private void initialize() {
 
         try {
@@ -72,6 +76,7 @@ public class AddCustWindow extends JFrame implements ActionListener{
 
     }
 
+    //adds funcitonality to the buttons
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == addBtn) {
@@ -81,7 +86,8 @@ public class AddCustWindow extends JFrame implements ActionListener{
         }
 
     }
-
+    
+    //adds customer using the addcustomer command
     private void addCust() {
         try {
             String name = nameText.getText();

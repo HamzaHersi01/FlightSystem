@@ -21,6 +21,7 @@ public class Flight {
 
     private final Set<Customer> passengers;
 
+    //initialises the constructor
     public Flight(int id, String flightNumber, String origin, String destination, LocalDate departureDate, int flightCapacity,int price) {
         this.id = id;
         this.flightNumber = flightNumber;
@@ -34,6 +35,7 @@ public class Flight {
         passengers = new HashSet<>();
     }
     
+    //getter and setter methods
     public boolean getRemoved() {
     	return removed;
     }
@@ -103,6 +105,7 @@ public class Flight {
         return new ArrayList<>(passengers);
     }
 	
+    //gets the details of flight object
     public String getDetails() {
         // TODO: implementation here
     	List<String> details = new ArrayList<>();
@@ -126,13 +129,14 @@ public class Flight {
     			+ passengers.size() + " passenger(s)";
     }
     
-    
+    //short version of details for flight object
     public String getDetailsShort() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/YYYY");
         return "Flight #" + id + " - " + flightNumber + " - " + origin + " to " 
                 + destination + " on " + departureDate.format(dtf) + " -  Capacity: " + flightCapacity + " -  Price: " + price;
     }
 
+    //long version of details for flight object
     public String getDetailsLong() {
         // TODO: implementation here
     	List<String> details = new ArrayList<>();
@@ -155,6 +159,7 @@ public class Flight {
     			+ passengers.size() + " passenger(s)";
     }
     
+    //adds the passenger to the flights set of passengers
     public void addPassenger(Customer passenger) throws FlightBookingSystemException {
 //    	if (passengers.contains(passenger)) {
 //            throw new IllegalArgumentException("Duplicate passenger ID.");
@@ -169,6 +174,7 @@ public class Flight {
         
     }
     //new class remove passenger
+    //removes a passenger from the set of passengers
     public void removePassenger(Customer passenger) throws FlightBookingSystemException {
     	int count = 0;
         for (Customer existing : passengers) {

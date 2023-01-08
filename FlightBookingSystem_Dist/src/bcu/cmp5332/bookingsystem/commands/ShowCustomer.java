@@ -18,6 +18,7 @@ public class ShowCustomer implements Command {
 
     @Override
     public void execute(FlightBookingSystem flightBookingSystem) throws FlightBookingSystemException {
+    	//shows specific customers long details through the method by parsing in the customers id
     	System.out.println(flightBookingSystem.getCustomerByID(id).getDetailsLong());
     }
     

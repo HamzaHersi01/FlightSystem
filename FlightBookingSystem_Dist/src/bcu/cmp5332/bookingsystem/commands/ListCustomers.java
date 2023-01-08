@@ -11,6 +11,8 @@ public class ListCustomers implements Command {
 	  
 		@Override
 	    public void execute(FlightBookingSystem flightBookingSystem) throws FlightBookingSystemException {
+			//has a list of customers from the flightbookingSystem and it goes through each customer in the list to print out 
+			//the get details short method and also prints out the number of customers
 	        List<Customer> customers = flightBookingSystem.getCustomers();
 	        for (Customer customer : customers) {
 	            System.out.println(customer.getDetailsShort());

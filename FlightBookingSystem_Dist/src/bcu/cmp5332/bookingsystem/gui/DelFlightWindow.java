@@ -23,12 +23,15 @@ public class DelFlightWindow extends JFrame implements ActionListener {
     
     private JButton subBtn = new JButton("Submit");
     private JButton cancelBtn = new JButton("Cancel");
-
+    
+    //initialises the constructor
     public DelFlightWindow(MainWindow mw) {
         this.mw = mw;
         initialize();
     }
 
+    //creates and initialises the window and add all elements to panels and layouts also adds actionlistener to buttons
+    // and sets it to visible
     private void initialize() {
 
         try {
@@ -62,6 +65,7 @@ public class DelFlightWindow extends JFrame implements ActionListener {
 
     }
 
+    //adds funcitonality to buttons
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == subBtn) {
@@ -71,7 +75,7 @@ public class DelFlightWindow extends JFrame implements ActionListener {
         }
 
     }
-    //doesnt do anything for now need delete flight method thing.
+    //attempted to delFlight but problem with ConcurrentmodificationException
     private void delFlight() {
 //        try {
 //        	int flightId = Integer.parseInt(flightIdText.getText());

@@ -11,6 +11,7 @@ public class FlightBookingSystem {
     private final Map<Integer, Customer> customers = new TreeMap<>();
     private final Map<Integer, Flight> flights = new TreeMap<>();
 
+    //getter and setter methods
     public LocalDate getSystemDate() {
         return systemDate;
     }
@@ -25,6 +26,7 @@ public class FlightBookingSystem {
         return Collections.unmodifiableList(out);
     }
 
+    //gets the flight object from the id parsed
     public Flight getFlightByID(int id) throws FlightBookingSystemException {
         if (!flights.containsKey(id)) {
             throw new FlightBookingSystemException("There is no flight with that ID.");
@@ -32,6 +34,7 @@ public class FlightBookingSystem {
         return flights.get(id);
     }
 
+    //gets the customer object from the id parsed
     public Customer getCustomerByID(int id) throws FlightBookingSystemException {
         // TODO: implementation here
     	//method implemented
@@ -41,6 +44,7 @@ public class FlightBookingSystem {
         return customers.get(id);
     }
 
+    //adds flight object to the map using the flight id as the key
     public void addFlight(Flight flight) throws FlightBookingSystemException {
         if (flights.containsKey(flight.getId())) {
             throw new IllegalArgumentException("Duplicate flight ID.");
@@ -55,6 +59,7 @@ public class FlightBookingSystem {
         flights.put(flight.getId(), flight);
     }
     //implement this using addFlight method
+    //adds customer to the map using the customers id as the key
     public void addCustomer(Customer customer) throws FlightBookingSystemException {
         // TODO: implementation here
     	//implemented but checks if name and phone number is equal

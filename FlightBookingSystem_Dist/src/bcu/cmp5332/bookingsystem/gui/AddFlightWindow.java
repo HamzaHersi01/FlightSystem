@@ -20,6 +20,7 @@ import javax.swing.UIManager;
 
 public class AddFlightWindow extends JFrame implements ActionListener {
 
+	//all the attributes for this class declared with a jframe element
     private MainWindow mw;
     private JTextField flightNoText = new JTextField();
     private JTextField originText = new JTextField();
@@ -31,6 +32,7 @@ public class AddFlightWindow extends JFrame implements ActionListener {
     private JButton addBtn = new JButton("Add");
     private JButton cancelBtn = new JButton("Cancel");
 
+    //initialises mw and runs method
     public AddFlightWindow(MainWindow mw) {
         this.mw = mw;
         initialize();
@@ -39,6 +41,9 @@ public class AddFlightWindow extends JFrame implements ActionListener {
     /**
      * Initialize the contents of the frame.
      */
+    //creates the window by setting the size and title of window and added all the elements like labels and txt fields to the panels
+    //which is a grid layout
+    //also adds actionlistener to buttons and sets it to visible
     private void initialize() {
 
         try {
@@ -84,6 +89,7 @@ public class AddFlightWindow extends JFrame implements ActionListener {
 
     }
 
+    //adds functionality to buttons
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == addBtn) {
@@ -94,6 +100,7 @@ public class AddFlightWindow extends JFrame implements ActionListener {
 
     }
 
+    //adds flight using addflight command
     private void addBook() {
         try {
             String flightNumber = flightNoText.getText();

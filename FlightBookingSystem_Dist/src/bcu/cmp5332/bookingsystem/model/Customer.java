@@ -62,10 +62,12 @@ public class Customer {
         return new ArrayList<>(bookings);
     }
 	
+    //shows a short version of the details for the customer
     public String getDetailsShort() {
         return "Customer #" + id + " - " + name + " - " + phone + " - "  + email;
     }
 
+  //shows a long version of the details for the customer
     public String getDetailsLong() {
         // TODO: implementation here
     	List<String> details = new ArrayList<>();
@@ -88,6 +90,7 @@ public class Customer {
     }
     
     
+    //adds booking to the customer object and also adds the passenger to the flight
     public void addBooking(Booking booking) throws FlightBookingSystemException {
         // TODO: implementation here
     	//checks if flight and customer is the same in the bookings list
@@ -107,6 +110,8 @@ public class Customer {
     }
     
     //new cancel booking class implemented
+    //cancels the booking for a customer through the flight being parsed and it removes the booking from the bookings list
+    //also removes passenger from flight and gives comments depending on functionality
     public void  cancelBookingForFlight(Flight flight) throws FlightBookingSystemException {
     	int count = 0;
     	Booking temp = null;

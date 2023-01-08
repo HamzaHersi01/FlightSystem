@@ -20,6 +20,8 @@ public class BookingDataManager implements DataManager {
     @Override
     public void loadData(FlightBookingSystem fbs) throws IOException, FlightBookingSystemException {
         // TODO: implementation here
+    	//loads the data from bookings txt file and gets each data separated by :: and creates a booking object which is added to each customer
+    	//using the data stored in the bookings txt
        	try (Scanner sc = new Scanner(new File(RESOURCE))) {
             
             while (sc.hasNextLine()) {
@@ -42,11 +44,13 @@ public class BookingDataManager implements DataManager {
             
         }
     }
-
+    //gets the last line index so it can be used as the new booking id if created in the addbooking command
      public static int getLineIdx() {
     	
 		return line_idx;
     }
+     
+     //stores the booking data to the bookings.txt file retrieved from the customers booking list
     @Override
     public void storeData(FlightBookingSystem fbs) throws IOException {
         // TODO: implementation here

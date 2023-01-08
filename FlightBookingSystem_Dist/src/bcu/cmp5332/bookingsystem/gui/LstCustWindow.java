@@ -28,12 +28,14 @@ public class LstCustWindow extends JFrame implements ActionListener{
 //	private JTextField showCustText = new JTextField();
 	private JButton subBtn = new JButton("Submit");
 
-	
+	//intitialises the constructor
 	 public LstCustWindow(MainWindow mw) {
 	        this.mw = mw;
 	        initialize();
 	    }
 	 
+	 //creates and initialises the window and add all elements to panels and layouts also adds actionlistener to buttons
+     // and sets it to visible
 	 private void initialize() {
 
 	        try {
@@ -69,6 +71,7 @@ public class LstCustWindow extends JFrame implements ActionListener{
 
 	    }
 	 
+	 	//adds functionality to the submit button
 	 	@Override
 		public void actionPerformed(ActionEvent ae) {
 			// TODO Auto-generated method stub
@@ -78,6 +81,9 @@ public class LstCustWindow extends JFrame implements ActionListener{
 			
 		}
 	 	
+	 	//this gets the flight id from the user and converts it to integer which it uses to get flight object
+	 	//so it can get the method get details to output details about the flight
+	 	//also it sets the output of getdetails to the text of the label to show it in the window interface
 	 	private void lstCust() {
 	        try {
 	            int flightId = Integer.parseInt(flightIdText.getText());

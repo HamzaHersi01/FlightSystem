@@ -13,17 +13,23 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 
 public class DelCustWindow extends JFrame implements ActionListener{
+	
+	//all the attributes for this class declared with a jframe element
 	private MainWindow mw;
     private JTextField custIdText = new JTextField();
     
     private JButton subBtn = new JButton("Submit");
     private JButton cancelBtn = new JButton("Cancel");
-
+    
+    //initialises mw and runs method
     public DelCustWindow(MainWindow mw) {
         this.mw = mw;
         initialize();
     }
 
+    //creates the window by setting the size and title of window and added all the elements like labels and txt fields to the panels
+    //which is a grid layout
+    //also adds actionlistener to buttons and sets it to visible
     private void initialize() {
 
         try {
@@ -57,6 +63,7 @@ public class DelCustWindow extends JFrame implements ActionListener{
 
     }
 
+    //adds funcitonality to buttons
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == subBtn) {
@@ -66,7 +73,7 @@ public class DelCustWindow extends JFrame implements ActionListener{
         }
 
     }
-    //doesnt do anything for now need delete flight method thing.
+    //attempted to delete customer had problems with concurrentmodificatioinExeption
     private void delCust() {
 //        try {
 //        	int flightId = Integer.parseInt(flightIdText.getText());
