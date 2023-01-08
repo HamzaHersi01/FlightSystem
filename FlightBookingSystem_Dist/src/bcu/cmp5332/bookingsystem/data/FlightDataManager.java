@@ -29,8 +29,11 @@ public class FlightDataManager implements DataManager {
                     LocalDate departureDate = LocalDate.parse(properties[4]);
                     int flightCapacity = Integer.parseInt(properties[5]);
                     int price = Integer.parseInt(properties[6]);
+                    boolean removed = Boolean.parseBoolean(properties[7]);
                     Flight flight = new Flight(id, flightNumber, origin, destination, departureDate, flightCapacity, price);
+                    if(removed == false) {
                     fbs.addFlight(flight);
+                   }
                 } catch (NumberFormatException ex) {
                     throw new FlightBookingSystemException("Unable to parse book id " + properties[0] + " on line " + line_idx
                         + "\nError: " + ex);
@@ -40,7 +43,6 @@ public class FlightDataManager implements DataManager {
         }
     }
     
-    @Override
     public void storeData(FlightBookingSystem fbs) throws IOException {
         try (PrintWriter out = new PrintWriter(new FileWriter(RESOURCE))) {
             for (Flight flight : fbs.getFlights()) {
@@ -51,8 +53,11 @@ public class FlightDataManager implements DataManager {
                 out.print(flight.getDepartureDate() + SEPARATOR);
                 out.print(flight.getFlightCapacity() + SEPARATOR);
                 out.print(flight.getPrice() + SEPARATOR);
+                out.print(flight.getRemoved() + SEPARATOR);
                 out.println();
             }
         }
     }
+    
+    
 }

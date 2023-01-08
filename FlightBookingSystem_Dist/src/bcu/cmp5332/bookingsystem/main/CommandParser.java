@@ -3,12 +3,14 @@ package bcu.cmp5332.bookingsystem.main;
 import bcu.cmp5332.bookingsystem.commands.LoadGUI;
 import bcu.cmp5332.bookingsystem.commands.ShowCustomer;
 import bcu.cmp5332.bookingsystem.commands.ShowFlight;
+import bcu.cmp5332.bookingsystem.data.FlightDataManager;
 import bcu.cmp5332.bookingsystem.model.FlightBookingSystem;
 import bcu.cmp5332.bookingsystem.commands.ListFlights;
 import bcu.cmp5332.bookingsystem.commands.AddBooking;
 import bcu.cmp5332.bookingsystem.commands.AddCustomer;
 import bcu.cmp5332.bookingsystem.commands.AddFlight;
 import bcu.cmp5332.bookingsystem.commands.CancelBooking;
+import bcu.cmp5332.bookingsystem.commands.CancelFlight;
 import bcu.cmp5332.bookingsystem.commands.Command;
 import bcu.cmp5332.bookingsystem.commands.Help;
 import bcu.cmp5332.bookingsystem.commands.ListCustomers;
@@ -77,6 +79,8 @@ public class CommandParser {
 
                     return new ShowCustomer(id);
                     
+                }else if (cmd.equals("cancelflight")) {
+                	return new CancelFlight(id);
                 }
             } else if (parts.length == 3) {
             	int customerId = Integer.parseInt(parts[1]);

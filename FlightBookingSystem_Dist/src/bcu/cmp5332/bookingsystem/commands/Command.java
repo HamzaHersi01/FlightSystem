@@ -11,6 +11,7 @@ public interface Command {
         + "\taddflight                                 add a new flight\n"
         + "\taddcustomer                               add a new customer\n"
         + "\tshowflight [flight id]                    show flight details\n"
+        + "\tcancelflight [flight id]                  removes flight\n"
         + "\tshowcustomer [customer id]                show customer details\n"
         + "\taddbooking [customer id] [flight id]      add a new booking\n"
         + "\tcancelbooking [customer id] [flight id]   cancel a booking\n"

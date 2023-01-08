@@ -71,4 +71,38 @@ public class FlightBookingSystem {
         customers.put(customer.getId(), customer);
     	
     }
+    
+    public void removeFlight(int id) throws FlightBookingSystemException{
+    	//int count = 0;
+    	 List<Customer> f1 = getFlightByID(id).getPassengers();
+    	 
+    	 List<Integer> toRemove = new ArrayList<>();
+    	 Flight flightyID = getFlightByID(id);
+    	//Customer temp = null;
+    	if(flights.containsKey(id) ) {
+    		getFlightByID(id).setRemoved(true);
+    		for(Customer customer : getFlightByID(id).getPassengers()) {
+    			//toRemove.add(f1.get(i));
+    			toRemove.add(customer.getId());
+    			//temp.cancelBookingForFlight(flightyID);
+    			
+    		}
+    		
+    		for (int customer2 : toRemove ) {
+    			getCustomerByID(customer2).cancelBookingForFlight(flightyID);;
+    			
+    		}
+    		
+//    		for (int customer2 : toRemove ) {
+//    			//customer2.cancelBookingForFlight(flightyID);
+//    		}
+    		
+    		//flights.remove(id);
+    		//flight.setRemoved(true);
+    		
+    	}else {
+    		throw new FlightBookingSystemException("There are no flights with that ID");
+    		}
+    	
+    }
 }

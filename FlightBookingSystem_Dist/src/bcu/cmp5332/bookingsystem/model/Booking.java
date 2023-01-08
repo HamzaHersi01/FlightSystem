@@ -3,15 +3,15 @@ package bcu.cmp5332.bookingsystem.model;
 import java.time.LocalDate;
 
 public class Booking {
-//    private int id;
+    private int id;
     private Customer customer;
     private Flight flight;
     private LocalDate bookingDate;
     
 
-    public Booking(Customer customer, Flight flight, LocalDate bookingDate) {
+    public Booking(int id,Customer customer, Flight flight, LocalDate bookingDate) {
         // TODO: implementation here
-//    	this.id = id;
+    	this.id = id;
     	this.customer = customer;
     	this.flight = flight;
     	this.bookingDate = bookingDate;
@@ -20,9 +20,13 @@ public class Booking {
     
     // TODO: implementation of Getter and Setter methods
     
-//    public int getBookingId() {
-//		return id;
-//	}
+    public int getBookingId() {
+		return id;
+	}
+    
+    public void setBookingId(int id) {
+    	this.id=id;
+    }
 
 
 	public Customer getCustomer() {
