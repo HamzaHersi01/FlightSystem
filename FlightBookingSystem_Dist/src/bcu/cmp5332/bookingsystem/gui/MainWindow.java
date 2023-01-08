@@ -77,6 +77,7 @@ public class MainWindow extends JFrame implements ActionListener {
         setJMenuBar(menuBar);
 
         //adding adminMenu menu and menu items
+        //gives you the option to exit gui using admin exit
         adminMenu = new JMenu("Admin");
         menuBar.add(adminMenu);
 
@@ -85,6 +86,7 @@ public class MainWindow extends JFrame implements ActionListener {
         adminExit.addActionListener(this);
 
         // adding Flights menu and menu items
+        //allows you to view, add,delete a  flight through gui
         flightsMenu = new JMenu("Flights");
         menuBar.add(flightsMenu);
 
@@ -100,6 +102,7 @@ public class MainWindow extends JFrame implements ActionListener {
         }
         
         // adding Bookings menu and menu items
+        //allows you to issue,update and cancel a booking through gui
         bookingsMenu = new JMenu("Bookings");
         
         bookingsIssue = new JMenuItem("Issue");
@@ -114,6 +117,7 @@ public class MainWindow extends JFrame implements ActionListener {
         }
 
         // adding Customers menu and menu items
+        //allows you to view, add, delete,list passengers through gui
         customersMenu = new JMenu("Customers");
         menuBar.add(customersMenu);
 
@@ -127,11 +131,12 @@ public class MainWindow extends JFrame implements ActionListener {
         customersMenu.add(custDel);
         customersMenu.add(lstCust);
         // adding action listener for Customers menu items
+        //performs the respective action for which option is selected
         custView.addActionListener(this);
         custAdd.addActionListener(this);
         custDel.addActionListener(this);
         lstCust.addActionListener(this);
-
+        //sests the size of the box
         setSize(800, 500);
 
         setVisible(true);
@@ -153,7 +158,7 @@ public class MainWindow extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-
+    	//exits the gui if exit is selected and saves before hand
         if (ae.getSource() == adminExit) {
             try {
                 FlightBookingSystemData.store(fbs);
@@ -161,31 +166,32 @@ public class MainWindow extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, ex, "Error", JOptionPane.ERROR_MESSAGE);
             }
             System.exit(0);
+            //will display the flights if flightsview is selcted
         } else if (ae.getSource() == flightsView) {
             displayFlights();
-            
+            //will allows you to add a flight by creating a pop up window with the input fields for a flight
         } else if (ae.getSource() == flightsAdd) {
             new AddFlightWindow(this);
-            
+            //allows you to delete a flight
         } else if (ae.getSource() == flightsDel) {
 //        	new DelFlightWindow(this);
-            
+            //allows you to issue a new booking
         } else if (ae.getSource() == bookingsIssue) {
             
-            
+           //allows you to cancel booking 
         } else if (ae.getSource() == bookingsCancel) {
             
-            
+          //allows you to view a customers  
         } else if (ae.getSource() == custView) {
         	displayCust();
-            
+          //allows you to add a new customer  
         } else if (ae.getSource() == custAdd) {
         	new AddCustWindow(this);
             
-            
+            //allows you to delete a customer
         } else if (ae.getSource() == custDel) {
             
-            
+           //allows you to list all customers
         } else if (ae.getSource() == lstCust) {
         	new LstCustWindow(this);
             
@@ -194,7 +200,7 @@ public class MainWindow extends JFrame implements ActionListener {
         
         
     }
-    
+    //prevents cells form being edited
     public boolean isCellEditable(int row, int col) {
     	if (col == 7) {
     	            return true;
@@ -202,7 +208,7 @@ public class MainWindow extends JFrame implements ActionListener {
     	            return false;
     	        }       
     	    }
-
+//shows the flights by using the respective getters
     public void displayFlights() {
         List<Flight> flightsList = fbs.getFlights();
         // headers for the table
@@ -219,13 +225,13 @@ public class MainWindow extends JFrame implements ActionListener {
             data[i][5] = flight.getPrice();
             
         }
-
+//creates the jtable from the data and coloumn objects
         JTable table = new JTable(data, columns);
         this.getContentPane().removeAll();
         this.getContentPane().add(new JScrollPane(table));
         this.revalidate();
     }
-    
+    //dispalys the customer and their respective attributes
     public void displayCust() {
 //    	JButton custBtn = new JButton("Booking details");
         List<Customer> custList = fbs.getCustomers();
@@ -246,7 +252,7 @@ public class MainWindow extends JFrame implements ActionListener {
             
         }
         
-
+        //creates a new jtable from the data and coloumn obkcts
         JTable table = new JTable(data, columns);
         this.getContentPane().removeAll();
         this.getContentPane().add(new JScrollPane(table));
@@ -255,7 +261,7 @@ public class MainWindow extends JFrame implements ActionListener {
         
         ListSelectionModel model = table.getSelectionModel();
         model.addListSelectionListener(new ListSelectionListener() {
-
+        	//shows the booking of a customer if they are selected
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				// TODO Auto-generated method stub

@@ -24,7 +24,8 @@ public class AddBooking implements Command, DataManager {
 		this.flightID = flightID;
 		this.date = LocalDate.now();
 	}
-	
+	//stores the data by calling on the getters for each attribute then stores them in a text file using PrintWriter class and adds a seperator at the end 
+	//so each attribute can be properly loaded by sharing a common deliemtre . This method is an implementaion of the store data method of DataManager Interface
 	@Override
 	public void storeData(FlightBookingSystem fbs) throws IOException{
 		// TODO Auto-generated method stub
@@ -55,7 +56,8 @@ public class AddBooking implements Command, DataManager {
 	public void execute(FlightBookingSystem flightBookingSystem) throws FlightBookingSystemException {
 		// TODO Auto-generated method stub
         int maxId = BookingDataManager.getLineIdx();
-       
+       //checks if the flight is at capacity and if it is it will deny the user but if it is not it wll add the booking by creating a new booking object
+       // and then it would save the state of the flight booking system by using the store data method 
         
 		try {
 			if(flightBookingSystem.getFlightByID(flightID).getPassengers().size() < flightBookingSystem.getFlightByID(flightID).getFlightCapacity()) {

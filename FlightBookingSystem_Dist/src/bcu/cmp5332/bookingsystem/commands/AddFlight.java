@@ -11,7 +11,7 @@ import java.io.PrintWriter;
 import java.time.LocalDate;
 
 public class AddFlight implements  Command,DataManager {
-
+//inizializes the varaibles
     private final String flightNumber;
     private final String origin;
     private final String destination;
@@ -20,7 +20,7 @@ public class AddFlight implements  Command,DataManager {
     private int price;
     private boolean removed = false;
     private final String RESOURCE = "./resources/data/flights.txt";
-    
+    //sets up the cosntructor 
     public AddFlight(String flightNumber, String origin, String destination, LocalDate departureDate,int flightCapacity,int price) {
         this.flightNumber = flightNumber;
         this.origin = origin;
@@ -36,7 +36,7 @@ public class AddFlight implements  Command,DataManager {
 		// TODO Auto-generated method stub
 		
 	}
-
+//stores the data in a text file using PrintWirter
 	@Override
     public void storeData(FlightBookingSystem fbs) throws IOException {
         try (PrintWriter out = new PrintWriter(new FileWriter(RESOURCE))) {
@@ -53,7 +53,7 @@ public class AddFlight implements  Command,DataManager {
             }
         }
     }
-    
+    //adds the flight with a new id by subtracting one from the max id then using that as an id to add the new flight and saving the information to texfile
     @Override
     public void execute(FlightBookingSystem flightBookingSystem) throws FlightBookingSystemException {
     	

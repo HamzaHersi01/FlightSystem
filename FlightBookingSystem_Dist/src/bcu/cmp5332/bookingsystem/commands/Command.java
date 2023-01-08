@@ -4,7 +4,7 @@ import bcu.cmp5332.bookingsystem.main.FlightBookingSystemException;
 import bcu.cmp5332.bookingsystem.model.FlightBookingSystem;
 
 public interface Command {
-
+//list of commands usable by user
     public static final String HELP_MESSAGE = "Commands:\n"
         + "\tlistflights                               print all flights\n"
         + "\tlistcustomers                             print all customers\n"

@@ -42,7 +42,7 @@ public class FlightDataManager implements DataManager {
             }
         }
     }
-    
+    //stores the flight data in a text file using the PrintWriter alogn side a delimeter of ::
     public void storeData(FlightBookingSystem fbs) throws IOException {
         try (PrintWriter out = new PrintWriter(new FileWriter(RESOURCE))) {
             for (Flight flight : fbs.getFlights()) {

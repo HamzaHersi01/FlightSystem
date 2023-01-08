@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 import bcu.cmp5332.bookingsystem.data.DataManager;
-
+//iniztales variables
 public class CancelBooking implements Command,DataManager {
 	private int customerID;
 	private int flightId;
@@ -22,7 +22,7 @@ public class CancelBooking implements Command,DataManager {
 		this.customerID = customerID;
 		this.flightId = flightID;
 	}
-	
+	//loads data from text file 
     @Override
     public void loadData(FlightBookingSystem fbs) throws IOException, FlightBookingSystemException {
         // TODO: implementation here
@@ -49,7 +49,7 @@ public class CancelBooking implements Command,DataManager {
         }
     }
     
-
+//stores data alongside seperator :: for proper saving and loading
     @Override
     public void storeData(FlightBookingSystem fbs) throws IOException {
         // TODO: implementation here

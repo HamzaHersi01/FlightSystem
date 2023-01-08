@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 import bcu.cmp5332.bookingsystem.data.DataManager;
 
 public class AddCustomer implements Command, DataManager {
-
+	//initalizes the varaibles
     private final String name;
     private final String phone;
     private final String email;
@@ -24,7 +24,7 @@ public class AddCustomer implements Command, DataManager {
         this.phone = phone;
         this.email = email;
     }
-    
+//uses the PrintWriter class to store a new customer and by it appending with a delimiter.
 	@Override
     public void storeData(FlightBookingSystem fbs) throws IOException {
         // TODO: implementation here
@@ -57,7 +57,11 @@ public class AddCustomer implements Command, DataManager {
 //         Customer customer = new Customer(++maxId, name, phone, email);
 //         flightBookingSystem.addCustomer(customer);
 //         System.out.println("Customer #" + customer.getId() + " added.");
-         
+    	
+    	
+         // gets next usable id by getting the total amount of customers then adding +1 to it 
+    	//it then creates a new customer object and uses the id just created as one of the parameteres along side the rest of them
+    	//the customer is then added to the flight booking system and the data is saved
      	try {
      		int maxId = 0;
             if (flightBookingSystem.getCustomers().size() > 0) {
