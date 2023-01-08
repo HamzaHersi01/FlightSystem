@@ -105,4 +105,15 @@ public class FlightBookingSystem {
     		}
     	
     }
+//  public void delFlight(int flightId) throws FlightBookingSystemException {
+//	if (!flights.containsKey(flightId)) {
+//        throw new FlightBookingSystemException("There is no flight with that ID.");
+//    }
+//	for (Customer existing : getFlightByID(flightId).getPassengers()) {
+//		//existing.cancelBookingForFlight(getFlightByID(flightId));
+//		
+//	}
+//	
+//	flights.remove(flightId);
+//}
 }

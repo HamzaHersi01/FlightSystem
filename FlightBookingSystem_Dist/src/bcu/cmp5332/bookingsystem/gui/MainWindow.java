@@ -168,7 +168,7 @@ public class MainWindow extends JFrame implements ActionListener {
             new AddFlightWindow(this);
             
         } else if (ae.getSource() == flightsDel) {
-            
+//        	new DelFlightWindow(this);
             
         } else if (ae.getSource() == bookingsIssue) {
             
